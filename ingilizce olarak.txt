@@ -1,0 +1,128 @@
+1
+
+Petlebi Website Data Scraping and Database Integration Project Presentation
+
+
+2
+
+Project Description
+This project aims to scrape product data from the website www.petlebi.com, store it in JSON format, and then transfer this data to a MySQL database. Its purpose is to enhance skills in web scraping and database management. Within the scope of the project, specific product attributes (product URL, product name, product barcode, product price, product stock, product images, description, SKU, category, product ID, brand) will be extracted and stored in JSON format. Subsequently, these JSON data will be transferred to a MySQL database.
+
+Technologies and Tools Used:
+
+Python programming language: Python language was utilized for web scraping operations.
+Scrapy library: Scrapy is a web scraping library used to extract data from www.petlebi.com.
+JSON: The data obtained from web scraping is stored in JSON format.
+MySQL database: The JSON data created is transferred and stored in a MySQL database.
+phpMyAdmin: phpMyAdmin was used to manage the MySQL database with a visual interface.
+
+
+3
+
+Python Library Used: Scrapy is a Python-based web scraping framework. Widely used for extracting data from web pages due to its flexible structure and rich feature set.
+
+
+Steps for Web Scraping Process:
+
+Determining Initial URLs: Within the project scope, we aim to fetch products from 4 different categories of www.petlebi.com. Therefore, we will identify the initial URLs.
+
+Creating a Scrapy Spider: In Scrapy, web scraping operations are performed using a specialized class called "Spider". The Spider class visits specific URLs, analyzes pages, and extracts the desired data.
+
+HTML Parsing and Data Extraction: The Spider retrieves the HTML content of visited web pages and extracts the desired data using specific XPath or CSS selectors. This data is then stored in JSON format.
+
+Handling Multiple Pages: If products belonging to a category are spread across multiple pages, the Spider navigates through these pages to collect all products.
+
+Data Processing and Cleaning: The extracted data is organized and prepared in JSON format by removing unnecessary information.
+
+Writing to JSON File: The extracted data is written to a JSON file.
+
+
+4
+
+Content of petlebi_scrapy.py File:
+
+The file petlebi_scrapy.py retrieves product data from www.petlebi.com using the Scrapy framework. Within this file, a Spider class named "PetlebiSpider" is defined. This class visits 4 different category pages as the initial URLs. Then, it fetches the necessary data for each product using XPath and CSS selectors and stores it in JSON format. The Spider navigates through all pages belonging to a specific category to collect all products. Finally, the extracted data is written to the petlebi_products.json file.
+
+
+5
+
+
+Working Principle:
+The PetlebiSpider class is a Spider class defined within the Scrapy framework.
+
+The start_urls list specifies the initial URLs to visit.
+
+The parse method processes the responses received from the initial URLs. A separate process is initiated for each category page.
+
+The parse_page method processes each category page. It retrieves the data for each product and assigns it to the relevant fields.
+
+The parse_product method makes a separate HTTP request for each product to access the product details and extract the necessary data.
+
+The extract_stock_info method is used to extract the product stock information. It retrieves the stock from the JSON-formatted data.
+
+The extracted data is stored in JSON format and finally written to the petlebi_products.json file.
+
+
+6
+
+Creating JSON File:
+During the web scraping process, the data obtained using Scrapy was converted to JSON format. This conversion was accomplished using Python's json library. A dictionary was created for each product, and these dictionaries were added to a list. Finally, the resulting list was written to a JSON file using the json.dump() function. The petlebi_products.json file is where the data obtained from the web scraping process is stored in JSON format. Each product has its own JSON object.
+
+The properties of each product are represented as follows:
+
+Product URL
+Product name
+Product barcode
+Product price
+Product stock
+Product images
+Description
+SKU
+Category
+Product ID
+Brand
+
+
+7
+
+Content and Working Principle of import_products.py File:
+The import_products.py file is a Python script responsible for transferring the data from the petlebi_products.json file to a MySQL database.
+
+Within the file, there are operations for reading data from the JSON file, connecting to the MySQL database, and adding the data.
+
+The data is read sequentially through a loop, and a MySQL query is generated for each piece of data.
+
+The generated queries are then sent to the MySQL database using the mysql.connector library to facilitate the transfer of data.
+
+Transfer of Data to MySQL Database:
+Python was used to transfer the data from the petlebi_products.json file, generated as a result of the web scraping process, to a MySQL database.
+This process was accomplished using the mysql.connector library, which facilitates interaction with the MySQL database.
+
+
+8
+
+The petlebi_create.sql file contains the SQL statements required to create the petlebi table in the MySQL database.
+This file includes the CREATE TABLE statements that define the structure of the table.
+The structure of the table includes all the properties necessary for products, such as product URL, product name, product barcode, product price, product stock, etc.
+
+The petlebi_insert.sql file contains the SQL INSERT statements used to add data to the petlebi table.
+This file is used to insert the data obtained from the petlebi_products.json file into the MySQL database.
+Each INSERT statement corresponds to one product, and these statements are filled with values corresponding to the columns in the petlebi table.
+
+
+9
+
+
+Results and Progress:
+The outcomes of the project have been measured against the defined objectives and success criteria.
+In accordance with the success criteria, data for all products has been collected using web scraping from the petlebi.com website, this data has been saved in JSON format, and then transferred to a MySQL database.
+It has been observed that the project aligns with the success criteria.
+
+Challenges Encountered and Overcome: 
+The main challenge encountered in the project was the consistent retrieval and organization of data during the web scraping process. The varying data structures of some products made the web scraping process more complex. These challenges were overcome through careful data analysis and the use of appropriate XPath expressions.
+Additionally, during the transfer of data to the MySQL database, data inconsistencies and errors were encountered. These errors were rectified, and the data transfer was successfully completed.
+
+Learning and Progress During Development:
+During the development process of the project, significant learning experiences were gained in areas such as web scraping, data processing, and MySQL database management.
+Particularly, in-depth knowledge was acquired in the use of web scraping libraries like Scrapy and data manipulation techniques.
+Additionally, database management and SQL skills were strengthened through processes such as creating databases and transferring data using MySQL.

@@ -1,0 +1,8 @@
+petlebi_spider.py:
+Terminalde ilgili dizine girin 'scrapy crawl petlebi' komutunu girin ve çalıştırın. Bu kod 4 ayrı linkten çektiği tüm ürünleri json dosyasına yazdıracak.
+
+petlebi_product.json:
+Çekilen ürünlerin yazdırıldığı dosya. petlebi_spider.py dosyası çalıştırıldıktan sonra ürünler bu dosyaya yazılacak fakat son satırındaki en son virgülü silmeniz gerekmektedir.
+
+import_product.py:
+Bu dosyayı çalıştırırsanız json dosyasındaki bütün veriler yeni_veritabanı adlı veritabanında petlebi tablosunda görüntülenecektir.
